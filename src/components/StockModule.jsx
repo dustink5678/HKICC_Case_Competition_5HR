@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { TrendingUp, TrendingDown, RefreshCw } from 'lucide-react';
 
-const StockModule = ({ onStockDataUpdate }) => {
+const StockModule = ({ onStockDataUpdate, title = "Your Holdings" }) => {
   const [stocks, setStocks] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -305,7 +305,7 @@ const StockModule = ({ onStockDataUpdate }) => {
     return (
       <div className="stock-module">
         <div className="stock-header">
-          <h4>Your Holdings</h4>
+          <h4>{title}</h4>
           <button className="refresh-btn" onClick={fetchStockData}>
             <RefreshCw size={16} />
           </button>
@@ -319,7 +319,7 @@ const StockModule = ({ onStockDataUpdate }) => {
     return (
       <div className="stock-module">
         <div className="stock-header">
-          <h4>Your Holdings</h4>
+          <h4>{title}</h4>
           <button className="refresh-btn" onClick={fetchStockData}>
             <RefreshCw size={16} />
           </button>
@@ -332,7 +332,7 @@ const StockModule = ({ onStockDataUpdate }) => {
   return (
     <div className="stock-module">
       <div className="stock-header">
-        <h4>Your Holdings</h4>
+        <h4>{title}</h4>
         <button className="refresh-btn" onClick={fetchStockData}>
           <RefreshCw size={16} />
         </button>

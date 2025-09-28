@@ -20,9 +20,9 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
     onSelectClient('ai-copilot');
   };
   const todaysMeetings = [
-    { id: 1, time: '10:00 AM', client: 'Jane Doe', purpose: 'Q3 Portfolio Review', highlighted: true },
-    { id: 2, time: '2:30 PM', client: 'Michael Chen', purpose: 'New Account Setup' },
-    { id: 3, time: '4:15 PM', client: 'Sarah Lee', purpose: 'ESG Investment Discussion' }
+    { id: 1, time: '10:00 AM', client: 'Jane Doe', purpose: 'Q3 Portfolio Review', highlighted: true, reviewNotes: 'Review Q3 performance (+12.5%), discuss ESG fund allocation' },
+    { id: 2, time: '2:30 PM', client: 'Michael Chen', purpose: 'New Account Setup', reviewNotes: 'Complete onboarding, review risk profile (conservative)' },
+    { id: 3, time: '4:15 PM', client: 'Sarah Lee', purpose: 'ESG Investment Discussion', reviewNotes: 'Present sustainable infrastructure fund options' }
   ];
 
   const keyAlerts = [
@@ -150,8 +150,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               { i: 'alerts', x: 8, y: 0, w: 4, h: 6, minW: 4, minH: 6 },
 
               // Market data widgets
-              { i: 'portfolio', x: 0, y: 6, w: 6, h: 6, minW: 4, minH: 5 },
-              { i: 'stocks', x: 6, y: 6, w: 6, h: 6, minW: 4, minH: 5 },
+              { i: 'stocks', x: 0, y: 6, w: 12, h: 6, minW: 4, minH: 5 },
 
               // Manager tools
               { i: 'talks', x: 0, y: 12, w: 4, h: 5, minW: 3, minH: 4 },
@@ -159,10 +158,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               { i: 'connections', x: 8, y: 12, w: 4, h: 5, minW: 3, minH: 4 },
 
               // More market data
-              { i: 'esg', x: 0, y: 17, w: 3, h: 5, minW: 3, minH: 4 },
-              { i: 'risk', x: 3, y: 17, w: 3, h: 5, minW: 3, minH: 4 },
-              { i: 'scenario', x: 6, y: 17, w: 3, h: 5, minW: 3, minH: 4 },
-              { i: 'chatbot', x: 9, y: 17, w: 3, h: 8, minW: 3, minH: 6 },
+              { i: 'chatbot', x: 0, y: 17, w: 12, h: 8, minW: 3, minH: 6 },
 
               // News and messages
               { i: 'news', x: 0, y: 22, w: 6, h: 5, minW: 4, minH: 4 },
@@ -175,8 +171,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               { i: 'alerts', x: 0, y: 6, w: 10, h: 5, minW: 4, minH: 5 },
 
               // Market data widgets
-              { i: 'portfolio', x: 0, y: 11, w: 5, h: 6, minW: 4, minH: 5 },
-              { i: 'stocks', x: 5, y: 11, w: 5, h: 6, minW: 4, minH: 5 },
+              { i: 'stocks', x: 0, y: 11, w: 10, h: 6, minW: 4, minH: 5 },
 
               // Manager tools
               { i: 'talks', x: 0, y: 17, w: 5, h: 5, minW: 3, minH: 4 },
@@ -184,10 +179,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               { i: 'connections', x: 0, y: 22, w: 10, h: 5, minW: 3, minH: 4 },
 
               // More market data
-              { i: 'esg', x: 0, y: 27, w: 5, h: 5, minW: 3, minH: 4 },
-              { i: 'risk', x: 5, y: 27, w: 5, h: 5, minW: 3, minH: 4 },
-              { i: 'scenario', x: 0, y: 32, w: 5, h: 5, minW: 3, minH: 4 },
-              { i: 'chatbot', x: 5, y: 32, w: 5, h: 8, minW: 3, minH: 6 },
+              { i: 'chatbot', x: 0, y: 27, w: 10, h: 8, minW: 3, minH: 6 },
 
               // News and messages
               { i: 'news', x: 0, y: 40, w: 5, h: 5, minW: 3, minH: 4 },
@@ -200,8 +192,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               { i: 'alerts', x: 0, y: 12, w: 6, h: 5, minW: 3, minH: 4 },
 
               // Market data widgets
-              { i: 'portfolio', x: 0, y: 17, w: 6, h: 6, minW: 3, minH: 5 },
-              { i: 'stocks', x: 0, y: 23, w: 6, h: 6, minW: 3, minH: 5 },
+              { i: 'stocks', x: 0, y: 17, w: 6, h: 6, minW: 3, minH: 5 },
 
               // Manager tools
               { i: 'talks', x: 0, y: 29, w: 6, h: 5, minW: 3, minH: 4 },
@@ -209,10 +200,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               { i: 'connections', x: 0, y: 39, w: 6, h: 5, minW: 3, minH: 4 },
 
               // More market data
-              { i: 'esg', x: 0, y: 44, w: 6, h: 5, minW: 3, minH: 4 },
-              { i: 'risk', x: 0, y: 49, w: 6, h: 5, minW: 3, minH: 4 },
-              { i: 'scenario', x: 0, y: 54, w: 6, h: 5, minW: 3, minH: 4 },
-              { i: 'chatbot', x: 0, y: 59, w: 6, h: 8, minW: 3, minH: 6 },
+              { i: 'chatbot', x: 0, y: 44, w: 6, h: 8, minW: 3, minH: 6 },
 
               // News and messages
               { i: 'news', x: 0, y: 67, w: 6, h: 5, minW: 3, minH: 4 },
@@ -252,6 +240,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
                     <div className="meeting-details">
                       <div className="client-name">{meeting.client}</div>
                       <div className="meeting-purpose">{meeting.purpose}</div>
+                      <div className="meeting-review-notes">{meeting.reviewNotes}</div>
                     </div>
                     {meeting.highlighted && <div className="upcoming-badge">Next</div>}
                   </div>
@@ -276,6 +265,80 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
                 <button className="view-approvals-btn" onClick={() => onSelectClient('ai-copilot')}>
                   View All
                 </button>
+              </div>
+
+              <div className="quick-communications">
+                <h4>Quick Communications</h4>
+                <div className="quick-comm-buttons">
+                  <button
+                    className="quick-comm-btn"
+                    onClick={() => {
+                      const email = {
+                        id: Date.now(),
+                        type: 'Employee Email',
+                        subject: 'Company Update',
+                        preview: 'Email to all employees requiring approval',
+                        clientName: 'All Employees',
+                        recipient: 'All HSBC Relationship Managers',
+                        content: 'Subject: Important Company Update\n\nDear Team,\n\n[Insert message content here]\n\nBest regards,\nManagement'
+                      };
+                      setApprovalQueue(prev => [...prev, email]);
+                    }}
+                  >
+                    📧 Email All Employees
+                  </button>
+                  <button
+                    className="quick-comm-btn"
+                    onClick={() => {
+                      const email = {
+                        id: Date.now() + 1,
+                        type: 'Client Email',
+                        subject: 'Market Update',
+                        preview: 'Email to all clients requiring approval',
+                        clientName: 'All Clients',
+                        recipient: 'All HSBC Clients',
+                        content: 'Subject: Market Update\n\nDear Valued Client,\n\n[Insert message content here]\n\nBest regards,\nYour Relationship Manager'
+                      };
+                      setApprovalQueue(prev => [...prev, email]);
+                    }}
+                  >
+                    📧 Email All Clients
+                  </button>
+                  <button
+                    className="quick-comm-btn"
+                    onClick={() => {
+                      const email = {
+                        id: Date.now() + 2,
+                        type: 'Holiday Email',
+                        subject: 'Holiday Greetings',
+                        preview: 'Personalized holiday email requiring approval',
+                        clientName: 'Holiday Recipient',
+                        recipient: '[Client Name]',
+                        content: 'Subject: Happy Holidays!\n\nDear [Client Name],\n\nWishing you and your family a joyful holiday season filled with warmth and happiness.\n\nWarm regards,\nYour Relationship Manager'
+                      };
+                      setApprovalQueue(prev => [...prev, email]);
+                    }}
+                  >
+                    🎄 Holiday Email
+                  </button>
+                  <button
+                    className="quick-comm-btn"
+                    onClick={() => {
+                      const email = {
+                        id: Date.now() + 3,
+                        type: 'Birthday Email',
+                        subject: 'Happy Birthday!',
+                        preview: 'Personalized birthday email requiring approval',
+                        clientName: 'Birthday Recipient',
+                        recipient: '[Client Name]',
+                        content: 'Subject: Happy Birthday!\n\nDear [Client Name],\n\nHappy Birthday! May this special day bring you joy and celebration.\n\nBest wishes,\nYour Relationship Manager'
+                      };
+                      setApprovalQueue(prev => [...prev, email]);
+                    }}
+                  >
+                    🎂 Birthday Email
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -391,20 +454,6 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
           </div>
 
           {/* Market data widgets */}
-          <div key="portfolio" className="dashboard-module">
-            <div className="module-header">
-              <h3>Portfolio Overview</h3>
-              <div className="module-actions">
-                <button className="module-settings">
-                  <Settings size={16} />
-                </button>
-              </div>
-            </div>
-            <div className="module-content">
-              <PortfolioOverview />
-            </div>
-          </div>
-
           <div key="stocks" className="dashboard-module">
             <div className="module-header">
               <h3>Stocks</h3>
@@ -415,49 +464,7 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
               </div>
             </div>
             <div className="module-content">
-              <StockModule onStockDataUpdate={onStockDataUpdate} />
-            </div>
-          </div>
-
-          <div key="esg" className="dashboard-module">
-            <div className="module-header">
-              <h3>ESG Impact</h3>
-              <div className="module-actions">
-                <button className="module-settings">
-                  <Settings size={16} />
-                </button>
-              </div>
-            </div>
-            <div className="module-content">
-              <ESGModule />
-            </div>
-          </div>
-
-          <div key="risk" className="dashboard-module">
-            <div className="module-header">
-              <h3>Risk Analytics</h3>
-              <div className="module-actions">
-                <button className="module-settings">
-                  <Settings size={16} />
-                </button>
-              </div>
-            </div>
-            <div className="module-content">
-              <RiskAnalytics />
-            </div>
-          </div>
-
-          <div key="scenario" className="dashboard-module">
-            <div className="module-header">
-              <h3>Risk Outlook</h3>
-              <div className="module-actions">
-                <button className="module-settings">
-                  <Settings size={16} />
-                </button>
-              </div>
-            </div>
-            <div className="module-content">
-              <ScenarioSimulation />
+              <StockModule onStockDataUpdate={onStockDataUpdate} title="Today's Market" />
             </div>
           </div>
 
@@ -635,6 +642,14 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
           opacity: 0.9;
         }
 
+        .meeting-review-notes {
+          font-size: 0.75rem;
+          color: #27ae60;
+          font-weight: 500;
+          margin-top: 4px;
+          font-style: italic;
+        }
+
         .upcoming-badge {
           background: rgba(255, 255, 255, 0.2);
           padding: 4px 8px;
@@ -674,6 +689,53 @@ const ManagerDashboard = ({ onSelectClient, approvalQueueCount, stockData, newsD
 
         .view-approvals-btn:hover {
           background: #2980b9;
+        }
+
+        /* Quick Communications */
+        .quick-communications {
+          margin-top: 20px;
+          padding-top: 20px;
+          border-top: 1px solid #e9ecef;
+        }
+
+        .quick-communications h4 {
+          font-size: 1rem;
+          color: #2c3e50;
+          margin: 0 0 12px 0;
+          font-weight: 600;
+        }
+
+        .quick-comm-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+        }
+
+        .quick-comm-btn {
+          background: #f8f9fa;
+          border: 1px solid #dee2e6;
+          padding: 12px 8px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 0.85rem;
+          font-weight: 500;
+          color: #2c3e50;
+          transition: all 0.3s ease;
+          text-align: center;
+          line-height: 1.3;
+        }
+
+        .quick-comm-btn:hover {
+          background: #667eea;
+          color: white;
+          border-color: #667eea;
+          transform: translateY(-1px);
+        }
+
+        @media (max-width: 768px) {
+          .quick-comm-buttons {
+            grid-template-columns: 1fr;
+          }
         }
 
         /* Alerts Widget */

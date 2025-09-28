@@ -1,0 +1,494 @@
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f7fa;
+  color: #333;
+  line-height: 1.6;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.header {
+  background: linear-gradient(135deg, #dc143c 0%, #b91c3c 100%);
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.hsbc-logo-image {
+  height: 40px;
+  width: auto;
+  object-fit: contain;
+}
+
+.dashboard-title {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+.header-center {
+  flex: 1;
+  max-width: 500px;
+  margin: 0 2rem;
+}
+
+.search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar svg {
+  position: absolute;
+  left: 1rem;
+  color: #666;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.75rem 1rem 0.75rem 3rem;
+  border: none;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  font-size: 0.95rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.search-bar input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-btn {
+  background: none;
+  border: none;
+  color: white;
+  padding: 0.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.user-profile:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+.dashboard-header {
+  margin-bottom: 2rem;
+}
+
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Grid Layout Styles */
+.layout {
+  min-height: 600px;
+}
+
+.dashboard-module {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid #e8ecef;
+}
+
+.dashboard-module:hover {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
+
+.module-header {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #e8ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fafbfc;
+  min-height: 50px;
+}
+
+.module-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+.module-settings {
+  background: none;
+  border: none;
+  color: #7f8c8d;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.module-settings:hover {
+  background: #e8ecef;
+  color: #2c3e50;
+}
+
+.module-content {
+  padding: 1rem;
+  height: calc(100% - 50px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+/* React Grid Layout Overrides */
+.react-grid-item {
+  transition: all 200ms ease;
+  transition-property: left, top;
+}
+
+.react-grid-item.cssTransforms {
+  transition-property: transform;
+}
+
+.react-grid-item > .react-resizable-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  right: 0;
+  background: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNiIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgNiA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8ZG90cyBmaWxsPSIjOTk5IiBkPSJtMTUgMTJoM3YzaC0zeiIvPgo8L3N2Zz4K');
+  background-position: bottom right;
+  padding: 0 3px 3px 0;
+  background-repeat: no-repeat;
+  background-origin: content-box;
+  box-sizing: border-box;
+  cursor: se-resize;
+}
+
+.react-grid-item.react-grid-placeholder {
+  background: rgba(220, 20, 60, 0.2);
+  border: 2px dashed #dc143c;
+  opacity: 0.6;
+  transition-duration: 100ms;
+  z-index: 2;
+  user-select: none;
+  border-radius: 12px;
+}
+
+.react-grid-item.react-draggable-dragging {
+  transition: none;
+  z-index: 3;
+  opacity: 0.8;
+}
+
+.react-grid-item.react-draggable-dragging .dashboard-module {
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  transform: rotate(2deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .header {
+    padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .header-center {
+    margin: 0;
+    max-width: none;
+    width: 100%;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+  
+  .module-content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-right {
+    flex-wrap: wrap;
+  }
+  
+  .user-profile span {
+    display: none;
+  }
+  
+  .dashboard-header h1 {
+    font-size: 1.5rem;
+  }
+}
+
+/* Edit Mode Styles */
+.header-btn.active {
+  background: #3498db;
+  color: white;
+}
+
+.edit-mode-banner {
+  background: #e74c3c;
+  color: white;
+  padding: 12px 20px;
+  margin-bottom: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-banner-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.hidden-modules {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 0.9rem;
+}
+
+.hidden-modules span {
+  font-weight: 500;
+}
+
+.restore-btn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.restore-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.layout.edit-mode .dashboard-module {
+  transition: all 0.3s ease;
+}
+
+.layout.edit-mode .dashboard-module:hover {
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+  border: 2px solid #e74c3c;
+}
+
+.module-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.module-remove {
+  background: #e74c3c;
+  color: white;
+  border: none;
+  padding: 4px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.module-remove:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+.dashboard-module.edit-mode .module-header {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-bottom: 2px solid #dee2e6;
+}
+
+/* Enhanced resize handles for all corners and edges */
+.edit-mode .react-resizable-handle {
+  background: #e74c3c !important;
+  border: 2px solid #c0392b !important;
+  width: 12px !important;
+  height: 12px !important;
+  border-radius: 50% !important;
+}
+
+.edit-mode .react-resizable-handle-se {
+  bottom: -6px !important;
+  right: -6px !important;
+}
+
+.edit-mode .react-resizable-handle-sw {
+  bottom: -6px !important;
+  left: -6px !important;
+}
+
+.edit-mode .react-resizable-handle-ne {
+  top: -6px !important;
+  right: -6px !important;
+}
+
+.edit-mode .react-resizable-handle-nw {
+  top: -6px !important;
+  left: -6px !important;
+}
+
+.edit-mode .react-resizable-handle-e {
+  right: -6px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 20px !important;
+  border-radius: 4px !important;
+}
+
+.edit-mode .react-resizable-handle-w {
+  left: -6px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 8px !important;
+  height: 20px !important;
+  border-radius: 4px !important;
+}
+
+.edit-mode .react-resizable-handle-n {
+  top: -6px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 20px !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+}
+
+.edit-mode .react-resizable-handle-s {
+  bottom: -6px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  width: 20px !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+}
+
+.edit-mode .react-grid-item.react-grid-placeholder {
+  background: #e74c3c !important;
+  opacity: 0.2 !important;
+  border: 2px dashed #c0392b !important;
+}
+
+/* View Toggle Button */
+.view-toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.view-toggle-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.view-toggle-btn.manager {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Client Dashboard Layout */
+.dashboard-main {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1400px;
+}
